@@ -6,5 +6,5 @@ Coordination of distributed systems leads to boiler plate patterns, and using Sp
 They will work well in any distributed environment, including the developer's own laptop, bare metal data centres, and managed platforms such as Cloud Foundry.
 
 스프링 클라우드는 개발자에게 분산 시스템에서 공통 패턴 중 일부를 빠르게 빌드하기 위한 도구를 제공한다.
-분산 시스템의 coordination은 boiler plate patterns으로 이어지며 스프링 클라우드를 사용하는 개발자는 이러한 패터을 구현하는 서비스와 어플리케이션을 빠르게 구축할 수 있다.
+분산 시스템의 coordination은 boiler plate patterns으로 이어지며 스프링 클라우드를 사용하는 개발자는 이러한 패턴을 구현하는 서비스와 어플리케이션을 빠르게 구축할 수 있다.
 개발자의 랩톱, bare metal data centres, Cloud Foundry와 같은 관리되는 플랫폼에서 잘 동작한다.
