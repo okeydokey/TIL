@@ -13,3 +13,9 @@
 - Hashes
 - Bit arrays
 - HyperLogLogs
+
+### [Persistence](https://redis.io/topics/persistence)
+
+- AOF
+- RDB
+
