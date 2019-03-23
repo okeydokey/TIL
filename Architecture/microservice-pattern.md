@@ -1,8 +1,26 @@
 
 
+## 클라이언트 회복성 패턴
+
+### 클라이언트 측 부하 분산
 
 
-### [Bulkhead Pattern](https://docs.microsoft.com/ko-kr/azure/architecture/patterns/bulkhead)
+
+### 폴백
+
+- 원격 서비스에 대한 호출이 실패할 때 예외를 발생시키지 않고 서비스 소비자가 대체 코드 경로를 실행해 다른 방법으로 작업을 수행
+
+### 회로 차단기
+
+- 원격 자원에 대한 모든 호출을 모니터링하고, 호출이 필요한 만큼 실패하면 회로 차단기가 활성화되어 빨리 실패하게 만들며, 고장 난 원격 자원은 더이상 호출되지 않도록 차단
+- 핵심 기능
+  - 빠른 실패 : 자원 고갈 방지
+  - 원만한 실패 : 대체 매커니즘
+  - 원활한 회복 : 자원 상태를 주기적으로 확인하여 사람의 개입 없이 자원 접근 허용
+
+
+
+### 벌크헤드 ([Bulkhead Pattern](https://docs.microsoft.com/ko-kr/azure/architecture/patterns/bulkhead))
 
 - https://skife.org/architecture/fault-tolerance/2009/12/31/bulkheads.html
 - 서비스를 격리하여 고장 범위를 제한하는 패턴
