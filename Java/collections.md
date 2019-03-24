@@ -6,7 +6,7 @@
 |순서o|순서x|순서x|
 |중복o|중복x|중복x|
 
-### list
+### List
 - ArrayList : 배열, access 빠름, 추가.삭제 시 shift 발생
 - LinkedList : Linked list, access 느림, 추가.삭제 시 빠름
 
