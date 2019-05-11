@@ -39,59 +39,32 @@
 - 이미지를 읽기 전용으로 사용하되 이미지에서 변경된 사항만 컨테이너 계층에 저장하므로 변경 내용이 이미지에 영향을 미치지 않음
 
 #### 도커 엔진 버전 확인
-``` docker -v```
+``` docker -v``` > ``` docker version```
+
+#### 도커 시스템 정보 확인
+
+```docker system info```
 
 #### 도커 이미지 내려받기
-``` docker pull centos:7 ```
+``` docker pull centos:7 ``` > ```docker image pull ```
 
-#### 컨테이너 생성
-``` docker run -i -t ubuntu:14.04```
-- run : 컨테이너를 생성하고 실행
-- ubuntu:14.04 : 컨테이너를 생성하기 위한 이미지 이름 (이미지가 로컬 도커 엔진에 존재하지 않을 경우 도커 중앙 이미지 저장소인 도커 허브에서 자동으로 이미지를 내려 받음)
-- -i : 상호 입출력
-- -t : tty 활성화해서 배시 셸 사용
+##### Docker Content Trust
 
-``` docekr create -i -t --name mycentos centos:7```
-- create : 컨테이너를 생성하기만 할 뿐 컨테이너로 들어가지 않음
-- --name : 컨테이너의 이름 설정
+- Docker 이미지의 정당성 확보
 
-#### 컨테이너 시작 및 내부로 들어가기
-``` docker start mycentos```
-``` docker attach mycentos ```
+- 유효화
 
-#### 컨테이너 내부에서 빠져나오기
-- exit를 셸에 입력 또는 Ctrl + D 입력 : 컨테이너 내부에서 빠져나오면서 동시에 컨테이너를 정지 시킴
-- Ctrl + P, Q : 컨테이너의 셸에서만 빠져나옴
+  ```export DOCKER_CONTENT_TRUST=1```
 
-#### 도커 이미지 목록
-``` docker images ```
+- 무효화
 
-#### 컨테이너 목록
-``` docker ps ```
-- 실행 중인 컨테이너 목록
-- -a : 정지된 컨테이너를 포함한 모든 컨테이너 출력
-
-``` docker ps --format "table {{.ID}}\t{{.Status}}\t{{.Image}}\t{{.Names}}" ```
-- 원하는 정보만 출력하도록 --format 옵션 사용
-
-#### 컨테이너 정지
-``` docker stop mycentos ```
-
-#### 컨테이너 삭제
-``` docker rm mycentos ```
-``` docker rm -f mycentos ```
-- -f : 실행 중인 컨테이너 삭제
-
-``` docker container prune ```
-- 모든 컨테이너 삭제
-
-``` docker rm $(docker ps -a -q) ```
-- 컨테이너 상태와 관계없는(-a) 모든 컨테이너의 ID(-q) 리스트를 변수로하여 삭제
-
-#### 컨테이너 외부 노출
-``` docker run -i -t name mywebserver -p 80:80 ubuntu:14.04 ```
-- -p : 컨테이너의 포트를 호스트의 포트와 바인딩해 연결할 수 있게 설정 [호스트의 포트]:[컨테이너의 포트]
-- [이미 컨테이너가 존재할 경우 설정 방법](https://stackoverflow.com/questions/19335444/how-do-i-assign-a-port-mapping-to-an-existing-docker-container)
+  ```export DOCKER_CONTENT_TRUST=0```
 
 #### 도커 로그
-``` docker logs XXX ```
+``` docker logs XXX ``` > ```docker container logs```
+
+#### 사용자 정의 네트워크 작성
+
+```docker network create -d bridge webap-net```
+
+```docker container run --net=webap-net -it centos```

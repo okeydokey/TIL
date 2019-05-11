@@ -9,6 +9,10 @@
 ### 도커 이미지 검색
 ``` docker search ubuntu ```
 
+- --no-trunc : 결과를 모두 표시
+- --limit : n건의 검색 결과를 표시
+- --filter=stars=n : 즐겨찾기의 수(n 이상)를 지정
+
 ### 도커 이미지 생성
 ``` docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]] ```
 
@@ -18,13 +22,36 @@
 
 - -a : author
 - -m : 커밋메시지
-
-### 이미지 구조
-``` docker inspect ubuntu:14.04 ```
-
 - 이미지를 커밋할 때 컨테이너에서 변경된 사항만 새로운 레이어로 저장하고, 그 레이어를 포함해 새로운 이미지를 생성
 - 즉, ubuntu image가 188MB라고 해서 commit_test:first가  188MB로 생성되는 것이 아니고 변경된 사항만 저장됨
 - 이미지를 삭제할 경우 해당 이미지를 기반으로  사용하는 이미지가 있을 경우 실제 이미지 파일을 삭제하지 않고 레이어에 부여된 이름만 삭제
+
+### 도커 이미지 삭제
+
+``` docker image rm [옵션] 이미지명 [이미지명]```
+
+- --force, -f : 이미지를 강제로 삭제
+- --no-prune : 중간 이미지를 삭제하지 않음
+
+```docker image prune [옵션]```
+
+- 사용하지 않은 이미지 삭제
+
+- --all, -a : 사용하지 않은 이미지를 모두 삭제
+- --force, -f : 이미지를 강제로 삭제
+
+### 도커 이미지 태그
+
+``` docker image tag ubuntu okey dokey/myubuntu:1.0```
+
+- 이미지에 별명을 붙일 뿐 이미지 자체를 복사하거나 이름을 바꾼 것은 아님
+
+### 이미지 구조
+``` docker inspect ubuntu:14.04 ``` > ```docker image inspect ubuntu:14.04```
+
+- 이미지 ID, 작성일, Docker 버전, CPU 아키텍처 등을 알 수 있음
+- --format : 포멧 지정
+  - ex) --format="{{.Os}}", --format="{{.ContainerConfig.Image}}"
 
 ### 이미지 추출
 ``` docker save -o ubuntu_14_04.tar ubuntu:14.04 ```
@@ -46,7 +73,7 @@
 
 #### 도커 허브 이미지 저장소를 사용하여 배포
 ``` docker login ```
-``` docker push ```
+``` docker push ``` > ```docker image push 이미지명[:태그명]```
 ``` docker pull ```
 
 - 도커 허브에서는 조직, 팀 구성을 제공
