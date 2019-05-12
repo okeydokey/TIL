@@ -121,3 +121,8 @@ optInsurance.filter(insurance -> "CambridgeInsurance".equals(insurance.getName()
 
 
 
+
+
+### 좋은 자료 
+
+[http://www.daleseo.com/java8-optional-before/](http://www.daleseo.com/java8-optional-before/)
