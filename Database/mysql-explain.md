@@ -1,4 +1,4 @@
-# 실행계획
+# MySQL 실행계획
 
 출처 : [Real MySQL](https://wikibook.co.kr/real-mysql/)
 
