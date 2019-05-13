@@ -252,15 +252,3 @@
 
 - 참고 : <https://stackoverflow.com/questions/43538030/zuul-and-ribbon-integration>
 
-  
-
-###### 상관관계 ID 란 ?
-
-- 마이크로 서비스에서 다수 서비스 간 호출 체인을 추적하기 위해 사용
-- 첫 호출  발생 시 전역 호출 식별자를 생성하고 후속하는 모든 호출에 전달하여 구조화된 방식으로 로그에 출력
-
-
-
-##### 참고
-
-- docker-compose -f ./docker/common/docker-compose-db.yml up
