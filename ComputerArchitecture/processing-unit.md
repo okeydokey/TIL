@@ -2,6 +2,10 @@
 
 # 처리장치
 
+참고 : [컴퓨터 구조](https://ridibooks.com/v2/Detail?id=2709000245)
+
+
+
 ![IMG_5FEC4AFCFB4B-1](../images/IMG_5FEC4AFCFB4B-1.jpeg)
 
 - 처리장치 : 데이터를 처리하는 연산을 실행
